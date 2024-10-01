@@ -43,4 +43,20 @@ class Quiz {
     hasEnded() {
         return this.currentQuestionIndex >= this.questions.length;
     }
+
+    //7. Method to filter the questions by difficulty
+    filterQuestionsByDifficulty(difficulty) {
+        let result = this.questions.filter((question)=> question.difficulty = difficulty);
+        return result;
+    }
+
+    //8. Method to calculate the average difficulty 
+    averageDifficulty() {
+        const initialDifficulty = 0;
+        const totalDifficulty = this.questions.reduce(
+            (accumulator, currentValue) => accumulator + currentValue.difficulty, 
+            initialDifficulty,
+        );
+        return totalDifficulty / this.questions.length;
+    }
 }
